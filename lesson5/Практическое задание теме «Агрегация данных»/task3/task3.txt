@@ -1,0 +1,1 @@
+SELECT ROUND(exp(SUM(log(product_id))), 0) AS factorial FROM storehouses_products sp;
