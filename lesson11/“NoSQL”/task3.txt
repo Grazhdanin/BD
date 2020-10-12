@@ -1,0 +1,32 @@
+Организуйте хранение категорий и товарных позиций учебной базы данных shop в СУБД MongoDB.
+
+
+> use shop
+switched to db shop
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+
+
+> use products
+switched to db products
+> db.products.insert([{"name": "Intel Core i3-8100", "description": "Процессор для настольных ПК", "price": "8000.00", "catalog_id": "Процессоры", "created_at": new Date(), "updated_at": new Date()},
+...                    {"name": "AMD FX-8320", "description": "Процессор для настольных ПК", "price": "4000.00", "catalog_id": "Процессоры", "created_at": new Date(), "updated_at": new Date()},
+...            {"name": "AMD FX-8320E", "description": "Процессор для настольных ПК", "price": "4500.00", "catalog_id": "Процессоры", "created_at": new Date(), "updated_at": new Date()}])
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 3,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.products.find()
+{ "_id" : ObjectId("5f6b8b971be7a835283aa22e"), "name" : "Intel Core i3-8100", "description" : "Процессор для настольных ПК", "price" : "8000.00", "catalog_id" : "Процессоры", "created_at" : ISODate("2020-09-23T17:53:27.073Z"), "updated_at" : ISODate("2020-09-23T17:53:27.073Z") }
+{ "_id" : ObjectId("5f6b8c0d1be7a835283aa230"), "name" : "AMD FX-8320", "description" : "Процессор для настольных ПК", "price" : "4000.00", "catalog_id" : "Процессоры", "created_at" : ISODate("2020-09-23T17:55:25.748Z"), "updated_at" : ISODate("2020-09-23T17:55:25.748Z") }
+{ "_id" : ObjectId("5f6b8c0d1be7a835283aa231"), "name" : "AMD FX-8320E", "description" : "Процессор для настольных ПК", "price" : "4500.00", "catalog_id" : "Процессоры", "created_at" : ISODate("2020-09-23T17:55:25.748Z"), "updated_at" : ISODate("2020-09-23T17:55:25.748Z") }
+
