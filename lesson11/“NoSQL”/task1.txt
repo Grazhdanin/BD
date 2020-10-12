@@ -1,0 +1,9 @@
+-- Практическое задание тема "NoSQL"
+-- 1. В базе данных Redis подберите коллекцию для подсчета посещений с определенных IP-адресов.
+HINCRBY addresses '144.0.0.1' 1
+HGETALL addresses
+
+HINCRBY addresses '144.0.0.2' 1
+HGETALL addresses
+
+HGET addresses '144.0.0.1'
